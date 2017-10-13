@@ -5,42 +5,34 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Obj = exports.Obj = function () {
-  function Obj(number) {
-    _classCallCheck(this, Obj);
+var Age = exports.Age = function Age(age) {
+  _classCallCheck(this, Age);
 
-    number = parseInt(number);
-    this.number = number;
-  }
-
-  _createClass(Obj, [{
-    key: "func",
-    value: function func() {
-      return this.number += 1;
-    }
-  }]);
-
-  return Obj;
-}();
+  this.age = age;
+};
 
 },{}],2:[function(require,module,exports){
 'use strict';
 
-var _object = require('./../js/object.js');
+var _age = require('./../js/age.js');
 
 $(document).ready(function () {
   $('.btn').click(function (e) {
     e.preventDefault();
-    var numberIn = $('#numberIn').val();
-    var obj = new _object.Obj(numberIn);
-    var numberOut = obj.func();
-    console.log(numberIn, numberOut);
-    $('#numberOut').text(numberOut);
+    var birthDate = $('#birth-date').val();
+    console.log(birthDate);
+    if (!moment(birthDate, 'YYYY-MM-DD').isValid()) {
+      console.log('Invalid Date');
+    } else {
+      console.log('Valid Date');
+    }
+    var newAge = new _age.Age(moment(birthDate));
+    console.log(newAge);
+    // let numberOut = obj.func();
+    // $('#numberOut').text(numberOut);
   });
 });
 
-},{"./../js/object.js":1}]},{},[2]);
+},{"./../js/age.js":1}]},{},[2]);

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "nyc karma start karma.conf.js istanbul"
+    "test": "karma start karma.conf.js"
   },
   "author": "",
   "license": "ISC",
@@ -41,7 +41,8 @@
     "ajv": "^5.2.3",
     "browserify-istanbul": "^2.0.0",
     "istanbul": "^0.4.5",
-    "istanbul-instrumenter-loader": "^3.0.0"
+    "istanbul-instrumenter-loader": "^3.0.0",
+    "moment": "^2.19.1"
   },
   "description": ""
 }
