@@ -9,11 +9,11 @@ var jshint = require('gulp-jshint');
 var babelify = require('babelify');
 var lib = require('bower-files')({
   overrides: {
-    bootstrap: {
+    materialize: {
       main: [
-        'less/bootstrap.less',
-        'dist/css/bootstrap.css',
-        'dist/js/bootstrap.js',
+        'sass/materialize.scss',
+        'dist/css/materialize.css',
+        'dist/js/materialize.js',
       ],
     },
   },

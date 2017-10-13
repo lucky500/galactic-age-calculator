@@ -13,9 +13,9 @@
   ],
   "dependencies": {
     "jquery": "^3.2.1",
-    "bootstrap": "^3.3.7"
+    "materialize": "^0.100.2"
   },
   "authors": [
-    "Rafael Furry <rfurry@gmail.com>"
+    "Luciano Oliveira <luciano101@msn.com>"
   ]
 }

@@ -66,7 +66,7 @@ This web application allows users to enter their age and it will convert into se
 
 _There are no known bugs at this time._
 
-## 📧Support and contact details📧
+## Support and contact details
 
 _Feel free to contact me at luciano101@msn.com_
 
