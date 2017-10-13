@@ -10,7 +10,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jquery-3.2.1', 'jasmine', 'browserify'],
+    frameworks: ['jquery-3.2.1', 'jasmine', 'browserify', 'moment-2.9.0'],
 
 
     // list of files / patterns to load in the browser
@@ -34,6 +34,7 @@ module.exports = function(config) {
     plugins: [
       'karma-jquery',
       'karma-browserify',
+      'karma-moment',
       'karma-jasmine',
       'karma-chrome-launcher',
       'karma-jasmine-html-reporter'
@@ -42,7 +43,7 @@ module.exports = function(config) {
         debug: true,
         transform: [ ['babelify', {presets: ["es2015"]} ] ],
     },
-    
+
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter

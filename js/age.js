@@ -2,13 +2,13 @@ import { moment } from 'moment';
 
 export class Age {
   
-  constructor(age) {
+  constructor(age, secondDate) {
     this.age = age;
+    this.secondDate = secondDate
   }
 
-  getDaysBetweenTodayAndADate(){
-    let today = moment();
-
-    return date.diff(today, days);
+  getSecondsBetweenTwoDates(){
+    differenceInSeconds = moment(this.secondDate).diff(this.age, 'seconds');
+    return differenceInSeconds;
   }
 }

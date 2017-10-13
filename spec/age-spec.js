@@ -1,14 +1,23 @@
 import { Age } from './../js/age.js';
 
 describe('Age', function() {
+  
   let reusableDate;
 
-  beforeEach(function(){
-    reusableDate = new Age("5");
+  beforeEach(() => {
+    reusableDate = new Date('2016-01-05');
+    console.log(reusableDate);
+    const mockedDateAndTime  = '2017-03-02 00:00:00';
+    const today = moment(mockedDateAndTime).toDate();
+    console.log(today);
+    jasmine.clock().mockDate(today);
   });
 
-  it('sets the age to the inputted date given', function() {
-    expect(reusableDate.age).toEqual("5");
+  it('should return the difference between today', () => {
+    let date = moment('2016-01-05');
+    expect(4).toEqual(reusableDate.getSecondsBetweenTwoDates(date));
   });
+
 
 });
+
