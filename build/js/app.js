@@ -22,24 +22,20 @@ var Age = exports.Age = function () {
   }
 
   _createClass(Age, [{
+    key: 'getPersonAgeInSeconds',
+    value: function getPersonAgeInSeconds(age) {
+      var ageInSeconds = new Date(this.age);
+      ageInSeconds = ageInSeconds.getTime() / 1000;
+      return ageInSeconds;
+    }
+  }, {
     key: 'getSecondsBetweenTwoDates',
     value: function getSecondsBetweenTwoDates(age, secondDate) {
-      age = moment(this.age);
-      secondDate = moment(this.secondDate);
+      var secondsAge = moment(this.age);
+      var secondsSecondDate = moment(this.secondDate);
 
-      return secondDate.diff(age, 'seconds');
-
-      //   differenceInDays = age.diff(secondDate, 'days');
-      //   //let differenceInDays = this.age - this.secondDate
-      //   return differenceInDays;
+      return secondsSecondDate.diff(secondsAge, 'seconds');
     }
-
-    // getDaysBetweenTodayAndADate(date, today) {
-    //   today = moment(this.today);
-    //   date = moment(this.date);
-    //   return date.diff(today, 'seconds'); 
-    // }
-
   }]);
 
   return Age;

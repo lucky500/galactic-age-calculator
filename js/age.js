@@ -1,4 +1,4 @@
-var moment = require('moment');
+const moment = require('moment');
 
 export class Age {
   
@@ -9,21 +9,16 @@ export class Age {
     // this.today = today;
   }
 
-  getSecondsBetweenTwoDates(age, secondDate){
-    age = moment(this.age);
-    secondDate = moment(this.secondDate);
-
-    return  secondDate.diff(age, 'seconds');
-
-  //   differenceInDays = age.diff(secondDate, 'days');
-  //   //let differenceInDays = this.age - this.secondDate
-  //   return differenceInDays;
-
+  getPersonAgeInSeconds(age){
+    let ageInSeconds = new Date(this.age);
+    ageInSeconds = ageInSeconds.getTime() / 1000;
+    return ageInSeconds;
   }
 
-  // getDaysBetweenTodayAndADate(date, today) {
-  //   today = moment(this.today);
-  //   date = moment(this.date);
-  //   return date.diff(today, 'seconds'); 
-  // }
+  getSecondsBetweenTwoDates(age, secondDate){
+    let secondsAge = moment(this.age);
+    let secondsSecondDate = moment(this.secondDate);
+
+    return  secondsSecondDate.diff(secondsAge, 'seconds');
+  }
 }
