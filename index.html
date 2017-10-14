@@ -8,11 +8,20 @@
     <title>Add one</title>
   </head>
   <body>
-    <h1>Please enter a number</h1>
-    <form id="number-form">
-      <input id="birth-date" type=date></input>
-      <button class="btn" type="submit" name="button">Submit</button>
-    </form>
-    <p id="numberOut"></p>
+    <div class="container">
+      <div class="row">
+        <div class="col s6">
+          <h1>Please enter a number</h1>
+          <form id="number-form">
+            <label for="birth-date">Enter your Birthday</label>
+            <input id="birth-date" type=date>
+            <label for="second-date">Enter a Second Date</label>
+            <input type="date" id="second-date">
+            <button class="btn" type="submit" name="button">Submit</button>
+          </form>
+          <p id="numberOut"></p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

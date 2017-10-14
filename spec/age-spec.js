@@ -30,6 +30,7 @@ describe('Age', function() {
 
     it('should return the difference between today', () => {
       var reusableDate = new Age('1984-10-20', '2016-10-15');
+      console.log(reusableDate);
       var tempDate = reusableDate.getSecondsBetweenTwoDates();
       console.log('tempDate:', tempDate);
       console.log(reusableDate);

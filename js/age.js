@@ -13,7 +13,7 @@ export class Age {
     age = moment(this.age);
     secondDate = moment(this.secondDate);
 
-    return  secondDate.diff(age, 'years');
+    return  secondDate.diff(age, 'seconds');
 
   //   differenceInDays = age.diff(secondDate, 'days');
   //   //let differenceInDays = this.age - this.secondDate
