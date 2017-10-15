@@ -1,27 +1,27 @@
-var gulp = require('gulp');
-watchify    = require('watchify');
-var browserify = require('browserify');
-var source = require('vinyl-source-stream');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var utilities = require('gulp-util');
-var del = require('del');
-var jshint = require('gulp-jshint');
-var babelify = require('babelify');
-var lib = require('bower-files')({
-  overrides: {
-    materialize: {
-      main: [
-        'sass/materialize.scss',
-        'dist/css/materialize.css',
-        'dist/js/materialize.js',
-      ],
+var gulp            = require('gulp'),
+    watchify        = require('watchify'),
+    browserify      = require('browserify'),
+    source          = require('vinyl-source-stream'),
+    concat          = require('gulp-concat'),
+    uglify          = require('gulp-uglify'),
+    utilities       = require('gulp-util'),
+    del             = require('del'),
+    jshint          = require('gulp-jshint'),
+    babelify        = require('babelify'),
+    browserSync     = require('browser-sync').create(),
+    buildProduction = utilities.env.production,
+    lib             = require('bower-files')({
+    overrides: {
+      materialize: {
+        main: [
+          'sass/materialize.scss',
+          'dist/css/materialize.css',
+          'dist/js/materialize.js',
+        ],
+      },
     },
-  },
-});
-var browserSync = require('browser-sync').create();
+  });
 
-var buildProduction = utilities.env.production;
 
 gulp.task('concatInterface', function () {
   return gulp.src(['./js/*-interface.js'])

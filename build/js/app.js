@@ -17,11 +17,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Age = exports.Age = function () {
-  function Age(age, secondDate) {
+  function Age(age, secondDate, gender, race) {
     _classCallCheck(this, Age);
 
     this.age = age;
     this.secondDate = secondDate;
+    this.gender = gender;
+    this.race = race;
   }
 
   _createClass(Age, [{
@@ -37,6 +39,21 @@ var Age = exports.Age = function () {
       var secondsAge = (0, _moment2.default)(this.age);
       var secondsSecondDate = (0, _moment2.default)(this.secondDate);
       return secondsSecondDate.diff(secondsAge, 'seconds');
+    }
+  }, {
+    key: 'lifeExpectancy',
+    value: function lifeExpectancy(gender, race) {
+      var result = Number(this.gender) + Number(this.race);
+      switch (true) {
+        case result === 6:
+          console.log(80.16);
+          break;
+        case result === 11:
+          console.log(85.44);
+          break;
+        default:
+          console.log('sorry please enter valid information');
+      }
     }
   }]);
 
@@ -54,6 +71,12 @@ exports.GalacticAge = undefined;
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _age = require('./../js/age.js');
+
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -73,16 +96,41 @@ var GalacticAge = exports.GalacticAge = function (_Age) {
   _createClass(GalacticAge, [{
     key: 'mercuryAge',
     value: function mercuryAge(age) {
-      var birthDay = this.age;
-      var currentAge = moment().diff(birthDay, 'years', false);
-      return currentAge;
+      var birthDay = (0, _moment2.default)(this.age);
+      var currentAge = (0, _moment2.default)().diff(birthDay, 'years', false);
+      var currentMercuryAge = Math.floor(currentAge * 365 / 88);
+      return currentMercuryAge;
+    }
+  }, {
+    key: 'venusAge',
+    value: function venusAge(age) {
+      var birthDay = (0, _moment2.default)(this.age);
+      var currentAge = (0, _moment2.default)().diff(birthDay, 'years', false);
+      var currentVenusAge = Math.floor(currentAge * 365 / 225);
+      return currentVenusAge;
+    }
+  }, {
+    key: 'MarsAge',
+    value: function MarsAge(age) {
+      var birthDay = (0, _moment2.default)(this.age);
+      var currentAge = (0, _moment2.default)().diff(birthDay, 'years', false);
+      var currentMarsAge = Math.ceil(currentAge * 365 / 685);
+      return currentMarsAge;
+    }
+  }, {
+    key: 'JupiterAge',
+    value: function JupiterAge(age) {
+      var birthDay = (0, _moment2.default)(this.age);
+      var currentAge = (0, _moment2.default)().diff(birthDay, 'years', false);
+      var currentJupiterAge = Math.ceil(currentAge * 365 / (11.8 * 365));
+      return currentJupiterAge;
     }
   }]);
 
   return GalacticAge;
 }(_age.Age);
 
-},{"./../js/age.js":1}],3:[function(require,module,exports){
+},{"./../js/age.js":1,"moment":3}],3:[function(require,module,exports){
 //! moment.js
 //! version : 2.19.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -4606,17 +4654,27 @@ var _age = require('./../js/age.js');
 var _galacticAge = require('./../js/galactic-age.js');
 
 $(document).ready(function () {
+  $('select').material_select();
+
   $('.btn').click(function (e) {
     e.preventDefault();
     var birthDate = $('#birth-date').val();
     var secondDate = $('#second-date').val();
-    console.log(birthDate);
+    var race = $('select[name=race]').val();
+    var gender = $('select[name=gender]').val();
+    var newAge = new _age.Age(birthDate, secondDate, gender, race);
+    console.log(gender);
+    console.log(race);
+    var genderAndRace = '' + (Number(gender) + Number(race));
+    var lifeExpectancyResult = newAge.lifeExpectancy();
+    console.log(genderAndRace);
+    console.log('life expenctancy result here:', lifeExpectancyResult);
     if (!moment(birthDate, 'YYYY-MM-DD').isValid()) {
       console.log('Invalid Date');
     } else {
       console.log('Valid Date');
     }
-    var newAge = new _age.Age(birthDate, secondDate);
+    //let newAge = new Age(birthDate, secondDate);
     console.log(birthDate);
     console.log(secondDate);
     console.log(newAge);
