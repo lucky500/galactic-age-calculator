@@ -29,4 +29,11 @@ export class GalacticAge extends Age {
     let currentMarsAge = Math.ceil((currentAge * 365) / 685);
     return currentMarsAge;
   }
+
+  JupiterAge(age){
+    const birthDay = moment(this.age);
+    let currentAge = moment().diff(birthDay, 'years', false);
+    let currentJupiterAge = Math.ceil((currentAge * 365) / (11.8 * 365));
+    return currentJupiterAge;
+  }
 }
