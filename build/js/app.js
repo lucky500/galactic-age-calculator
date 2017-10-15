@@ -17,13 +17,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Age = exports.Age = function () {
-  function Age(age, secondDate, gender, race) {
+  function Age(age, secondDate, gender, race, activity) {
     _classCallCheck(this, Age);
 
     this.age = age;
     this.secondDate = secondDate;
     this.gender = gender;
     this.race = race;
+    this.activity = activity;
   }
 
   _createClass(Age, [{
@@ -42,18 +43,61 @@ var Age = exports.Age = function () {
     }
   }, {
     key: 'lifeExpectancy',
-    value: function lifeExpectancy(gender, race) {
-      var result = Number(this.gender) + Number(this.race);
+    value: function lifeExpectancy(gender, race, activity) {
+      var lifeExpectancyMath = Number(this.gender) + Number(this.race);
+      var activityLevel = Number(this.activity);
+
+      console.log('inside app.js"', lifeExpectancyMath);
+      var result = 0;
+      var hispanicMale = 80.16;
+      var hispanicFemale = 85.44;
+      var whiteMale = 76.71;
+      var whiteFemale = 81.48;
+      var blackMale = 72.29;
+      var blackFemale = 78.46;
+      var asianMale = 84.13;
+      var asianFemale = 88.89;
+
+      if (activityLevel === 0) {
+        result = result + 0;
+      } else if (activityLevel > 0 && activityLevel <= 3) {
+        result = result + 2;
+      } else if (activityLevel > 3 && activityLevel <= 6) {
+        result = result + 5;
+      } else {
+        result = result + 10;
+      }
+
       switch (true) {
-        case result === 6:
-          console.log(80.16);
+        case lifeExpectancyMath === 6:
+          result = result + hispanicMale;
           break;
-        case result === 11:
-          console.log(85.44);
+        case lifeExpectancyMath === 11:
+          result = result + hispanicFemale;
+          break;
+        case lifeExpectancyMath === 7:
+          result = result + whiteMale;
+          break;
+        case lifeExpectancyMath === 12:
+          result = result + whiteFemale;
+          break;
+        case lifeExpectancyMath === 8:
+          result = result + blackMale;
+          break;
+        case lifeExpectancyMath === 13:
+          result = result + blackFemale;
+          break;
+        case lifeExpectancyMath === 9:
+          result = result + asianMale;
+          break;
+        case lifeExpectancyMath === 14:
+          result = result + asianFemale;
           break;
         default:
           console.log('sorry please enter valid information');
       }
+
+      return result;
     }
   }]);
 
@@ -4662,24 +4706,12 @@ $(document).ready(function () {
     var secondDate = $('#second-date').val();
     var race = $('select[name=race]').val();
     var gender = $('select[name=gender]').val();
-    var newAge = new _age.Age(birthDate, secondDate, gender, race);
-    console.log(gender);
-    console.log(race);
-    var genderAndRace = '' + (Number(gender) + Number(race));
+    var activity = $('#activity').val();
+    var newAge = new _age.Age(birthDate, secondDate, gender, race, activity);
     var lifeExpectancyResult = newAge.lifeExpectancy();
-    console.log(genderAndRace);
-    console.log('life expenctancy result here:', lifeExpectancyResult);
-    if (!moment(birthDate, 'YYYY-MM-DD').isValid()) {
-      console.log('Invalid Date');
-    } else {
-      console.log('Valid Date');
-    }
-    //let newAge = new Age(birthDate, secondDate);
-    console.log(birthDate);
-    console.log(secondDate);
-    console.log(newAge);
+    $('.life-expectancy-results').text(lifeExpectancyResult);
+
     var numberOut = newAge.getSecondsBetweenTwoDates();
-    console.log(numberOut);
     $('#numberOut').text(numberOut);
   });
 });

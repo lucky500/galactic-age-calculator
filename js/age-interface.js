@@ -10,24 +10,13 @@ $(document).ready(function () {
     let secondDate = $('#second-date').val();
     let race = $('select[name=race]').val();
     let gender = $('select[name=gender]').val();
-    const newAge = new Age(birthDate, secondDate, gender, race);
-    console.log(gender);
-    console.log(race);
-    let genderAndRace = `${Number(gender) + Number(race)}`;
+    let activity = $('#activity').val();
+    const newAge = new Age(birthDate, secondDate, gender, race, activity);
     let lifeExpectancyResult = newAge.lifeExpectancy();
-    console.log(genderAndRace);
-    console.log('life expenctancy result here:', lifeExpectancyResult);
-    if (!moment(birthDate,'YYYY-MM-DD').isValid()) {
-      console.log('Invalid Date');
-    } else {
-      console.log('Valid Date');
-    }
-    //let newAge = new Age(birthDate, secondDate);
-    console.log(birthDate);
-    console.log(secondDate);
-    console.log(newAge);
+    $('.life-expectancy-results').text(lifeExpectancyResult);
+
+
     let numberOut = newAge.getSecondsBetweenTwoDates();
-    console.log(numberOut);
     $('#numberOut').text(numberOut);
   });
 });
