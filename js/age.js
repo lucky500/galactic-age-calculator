@@ -1,12 +1,10 @@
-const moment = require('moment');
+import moment from 'moment';
 
 export class Age {
   
   constructor(age, secondDate) {
     this.age = age;
     this.secondDate = secondDate;
-    // this.date = date;
-    // this.today = today;
   }
 
   getPersonAgeInSeconds(age){
@@ -18,7 +16,7 @@ export class Age {
   getSecondsBetweenTwoDates(age, secondDate){
     let secondsAge = moment(this.age);
     let secondsSecondDate = moment(this.secondDate);
-
     return  secondsSecondDate.diff(secondsAge, 'seconds');
   }
+  
 }

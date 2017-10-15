@@ -3,16 +3,20 @@ import { Age } from './../js/age.js';
 describe('Age', function() {
   
   let reusableDate,
-      today;
+      today,
+      xmas;
 
   beforeEach(() => {
     reusableDate = new Age();
-    today = moment('1995-12-25').toDate();
+    today = moment().toDate();
+    xmas = moment('1995-12-25')
     jasmine.clock().mockDate(today);
   });
 
   it('should return a date in seconds', () =>{
-    reusableDate = new Age(today);
+    reusableDate = new Age(xmas);
+    console.log(reusableDate)
+    console.log(today)
     expect(819878400).toEqual(reusableDate.getPersonAgeInSeconds());
   });
 

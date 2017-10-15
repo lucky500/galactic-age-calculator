@@ -1,4 +1,5 @@
 import { Age } from './../js/age.js';
+import { GalacticAge } from './../js/galactic-age.js';
 
 $(document).ready(function () {
   $('.btn').click(function (e) {
