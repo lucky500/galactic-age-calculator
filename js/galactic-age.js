@@ -9,7 +9,8 @@ export class GalacticAge extends Age {
 
   mercuryAge(age){
     const birthDay = moment(this.age);
-    const currentAge = moment().diff(birthDay, 'years', false);
-    return currentAge;
+    let currentAge = moment().diff(birthDay, 'years', false);
+    let currentMercuryAge = Math.floor((currentAge * 365) / 88);
+    return currentMercuryAge;
   }
 }

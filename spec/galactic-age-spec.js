@@ -9,11 +9,11 @@ describe('GalacticAge', function() {
   beforeEach(() => {
     today = moment().toDate();
     jasmine.clock().mockDate(today);
-    reusableDate = new GalacticAge("1995-12-25");
+    reusableDate = new GalacticAge("1995-10-14");
   });
 
   it('should return your current age in Mercury', () =>{
-    expect(21).toEqual(reusableDate.mercuryAge());
+    expect(91).toEqual(reusableDate.mercuryAge());
   });
 
 });
