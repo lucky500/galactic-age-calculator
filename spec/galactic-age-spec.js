@@ -16,4 +16,8 @@ describe('GalacticAge', function() {
     expect(91).toEqual(reusableDate.mercuryAge());
   });
 
+  it('should return your current age in Mercury', () =>{
+    expect(35).toEqual(reusableDate.venusAge());
+  });
+
 });
