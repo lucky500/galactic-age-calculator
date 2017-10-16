@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 export class Age {
-  
+
   constructor(age, secondDate, gender, race, activity) {
     this.age = age;
     this.secondDate = secondDate;
@@ -27,7 +27,7 @@ export class Age {
     const activityLevel = Number(this.activity);
 
     console.log('inside app.js"', lifeExpectancyMath);
-    let result = 0; 
+    let result = 0;
     const hispanicMale    = 80.16;
     const hispanicFemale  = 85.44;
     const whiteMale       = 76.71;
@@ -73,10 +73,10 @@ export class Age {
         result = result + asianFemale;
         break;
       default:
-        console.log('sorry please enter valid information');
+        console.log('Please enter a valid information');
     }
 
     return result;
   }
-  
+
 }

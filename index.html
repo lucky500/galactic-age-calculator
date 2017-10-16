@@ -2,39 +2,39 @@
 <html>
   <head>
     <link rel="stylesheet" href="build/css/vendor.css">
+    <link rel="stylesheet" href="build/css/styles.css">
     <script src="build/js/vendor.min.js"></script>
     <script src="build/js/app.js" type="text/javascript"></script>
     <meta charset="utf-8">
     <title>Galactic Age Calculator</title>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col s6">
+    <div class="row navigation">
+      <div class="col s12">
           <form id="number-form">
             <div class="row">
-              <div class="col s6">
-                <div>
-                  <label for="birth-date">Enter your Birthday</label>
-                  <input id="birth-date" type=date>
-                </div>
-                <div>
-                  <label for="second-date">Enter a Second Date, to see the seconds between your age and this date.</label>
-                  <input type="date" id="second-date">
-                </div>
+              <div class="col s12 l2">
+                <label for="birth-date">Enter your Birthday</label>
+                <input id="birth-date" type=date>
               </div>
-              <div class="col s6">
+              <div class="col s12 l2">
+                <label for="second-date">Enter a Second Date</label>
+                <input type="date" id="second-date">
+              </div>
+              <div class="col s12 l2">
                 <div class="input-field row">
                   <select name="gender" id="gender">
-                    <option value="" disabled selectd>Choose your option</option>
+                    <option value="" disabled selected>Choose your option</option>
                     <option value="5">Male</option>
                     <option value="10">Female</option>
                   </select>
                   <label for="gender">Gender:</label>
                 </div>
+              </div>
+              <div class="col s12 l2">
                 <div class="input-field row">
                   <select name="race" id="race">
-                    <option value="" disabled selectd>Choose your option</option>
+                    <option value="" disabled selected>Choose your option</option>
                     <option value="1">Hispanic</option>
                     <option value="2">White</option>
                     <option value="3">Black</option>
@@ -42,7 +42,9 @@
                   </select>
                   <label for="race">Race:</label>
                 </div>
-                <div class="input-field row">
+              </div>
+              <div class="col s12 l2">
+                <div class="input-field activity row">
                   <label for="activity">Activity Level:</label>
                   <br>
                   <p class="range-field">
@@ -50,19 +52,62 @@
                   </p>
                 </div>
               </div>
+              <div class="col s12 l2">
+                <div class="valign-wrapper">
+                  <button class="btn center-align form-button" type="submit" name="button">Submit</button>
+                </div>
+              </div>
             </div>
-            <div class="row">
-              <button class="btn" type="submit" name="button">Submit</button>
-            </div>  
           </form>
         </div>
-      </div>
-      <div class="row">
-        <div>
-          <p id="numberOut"></p>     
-        </div>
-        <div>
-          <p>You will live until <span class="life-expectancy-results"></span></p>
+    </div>
+    <div class="body-wrapper">
+      <div class=>
+        <div class="row">
+          <div class="col s12 l2">
+            <p id="numberOut"></p>
+            <p>You will live until <span class="life-expectancy-results"></span></p>
+          </div>
+          <div class="col s12 l2">
+            <div class="mars">
+              <p>Your age in Mars is: <br>
+                <span id="age-in-mars"></span>
+              </p>
+              <p>Your life expectancy is: <br>
+                <span id="life-exctancy-mars"></span>
+              </p>
+            </div>
+          </div>
+          <div class="col s12 l2">
+            <div class="jupiter">
+              <p>Your age in jupiter is: <br>
+                <span id="age-in-jupiter"></span>
+              </p>
+              <p>Your life expectancy is: <br>
+                <span id="life-exctancy-jupiter"></span>
+              </p>
+            </div>
+          </div>
+          <div class="col s12 l2">
+            <div class="mercury">
+              <p>Your age in Mercury is: <br>
+                  <span id="age-in-mercury"></span>
+              </p>
+              <p>Your life expectancy is: <br>
+                <span id="life-exctancy-mercury"></span>
+              </p>
+            </div>
+          </div>
+          <div class="col s12 l2">
+            <div class="venus">
+              <p>Your age in Venus is: <br>
+                <span id="age-in-venus"></span>
+              </p>
+              <p>Your life expectancy is: <br>
+                <span id="life-exctancy-venus"></span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

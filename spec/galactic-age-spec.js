@@ -1,7 +1,7 @@
-import { GalacticAge } from './../js/galactic-age.js';
+import { GalacticAge } from './../src/js/galactic-age.js';
 
 describe('GalacticAge', function() {
-  
+
   let reusableDate,
       today,
       testDate;
@@ -21,11 +21,11 @@ describe('GalacticAge', function() {
   });
 
   it('should return your current age in Mars', () => {
-    expect(12).toEqual(reusableDate.MarsAge());
+    expect(12).toEqual(reusableDate.marsAge());
   });
 
   it('should return your current age in Jupiter', () => {
-    expect(2).toEqual(reusableDate.JupiterAge());
+    expect(2).toEqual(reusableDate.jupiterAge());
   });
 
 });

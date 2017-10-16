@@ -1,180 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Age = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _moment = require('moment');
-
-var _moment2 = _interopRequireDefault(_moment);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Age = exports.Age = function () {
-  function Age(age, secondDate, gender, race, activity) {
-    _classCallCheck(this, Age);
-
-    this.age = age;
-    this.secondDate = secondDate;
-    this.gender = gender;
-    this.race = race;
-    this.activity = activity;
-  }
-
-  _createClass(Age, [{
-    key: 'getPersonAgeInSeconds',
-    value: function getPersonAgeInSeconds(age) {
-      var ageInSeconds = new Date(this.age);
-      ageInSeconds = ageInSeconds.getTime() / 1000;
-      return ageInSeconds;
-    }
-  }, {
-    key: 'getSecondsBetweenTwoDates',
-    value: function getSecondsBetweenTwoDates(age, secondDate) {
-      var secondsAge = (0, _moment2.default)(this.age);
-      var secondsSecondDate = (0, _moment2.default)(this.secondDate);
-      return secondsSecondDate.diff(secondsAge, 'seconds');
-    }
-  }, {
-    key: 'lifeExpectancy',
-    value: function lifeExpectancy(gender, race, activity) {
-      var lifeExpectancyMath = Number(this.gender) + Number(this.race);
-      var activityLevel = Number(this.activity);
-
-      console.log('inside app.js"', lifeExpectancyMath);
-      var result = 0;
-      var hispanicMale = 80.16;
-      var hispanicFemale = 85.44;
-      var whiteMale = 76.71;
-      var whiteFemale = 81.48;
-      var blackMale = 72.29;
-      var blackFemale = 78.46;
-      var asianMale = 84.13;
-      var asianFemale = 88.89;
-
-      if (activityLevel === 0) {
-        result = result + 0;
-      } else if (activityLevel > 0 && activityLevel <= 3) {
-        result = result + 2;
-      } else if (activityLevel > 3 && activityLevel <= 6) {
-        result = result + 5;
-      } else {
-        result = result + 10;
-      }
-
-      switch (true) {
-        case lifeExpectancyMath === 6:
-          result = result + hispanicMale;
-          break;
-        case lifeExpectancyMath === 11:
-          result = result + hispanicFemale;
-          break;
-        case lifeExpectancyMath === 7:
-          result = result + whiteMale;
-          break;
-        case lifeExpectancyMath === 12:
-          result = result + whiteFemale;
-          break;
-        case lifeExpectancyMath === 8:
-          result = result + blackMale;
-          break;
-        case lifeExpectancyMath === 13:
-          result = result + blackFemale;
-          break;
-        case lifeExpectancyMath === 9:
-          result = result + asianMale;
-          break;
-        case lifeExpectancyMath === 14:
-          result = result + asianFemale;
-          break;
-        default:
-          console.log('sorry please enter valid information');
-      }
-
-      return result;
-    }
-  }]);
-
-  return Age;
-}();
-
-},{"moment":3}],2:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.GalacticAge = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _age = require('./../js/age.js');
-
-var _moment = require('moment');
-
-var _moment2 = _interopRequireDefault(_moment);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var GalacticAge = exports.GalacticAge = function (_Age) {
-  _inherits(GalacticAge, _Age);
-
-  function GalacticAge(age) {
-    _classCallCheck(this, GalacticAge);
-
-    return _possibleConstructorReturn(this, (GalacticAge.__proto__ || Object.getPrototypeOf(GalacticAge)).call(this, age));
-  }
-
-  _createClass(GalacticAge, [{
-    key: 'mercuryAge',
-    value: function mercuryAge(age) {
-      var birthDay = (0, _moment2.default)(this.age);
-      var currentAge = (0, _moment2.default)().diff(birthDay, 'years', false);
-      var currentMercuryAge = Math.floor(currentAge * 365 / 88);
-      return currentMercuryAge;
-    }
-  }, {
-    key: 'venusAge',
-    value: function venusAge(age) {
-      var birthDay = (0, _moment2.default)(this.age);
-      var currentAge = (0, _moment2.default)().diff(birthDay, 'years', false);
-      var currentVenusAge = Math.floor(currentAge * 365 / 225);
-      return currentVenusAge;
-    }
-  }, {
-    key: 'MarsAge',
-    value: function MarsAge(age) {
-      var birthDay = (0, _moment2.default)(this.age);
-      var currentAge = (0, _moment2.default)().diff(birthDay, 'years', false);
-      var currentMarsAge = Math.ceil(currentAge * 365 / 685);
-      return currentMarsAge;
-    }
-  }, {
-    key: 'JupiterAge',
-    value: function JupiterAge(age) {
-      var birthDay = (0, _moment2.default)(this.age);
-      var currentAge = (0, _moment2.default)().diff(birthDay, 'years', false);
-      var currentJupiterAge = Math.ceil(currentAge * 365 / (11.8 * 365));
-      return currentJupiterAge;
-    }
-  }]);
-
-  return GalacticAge;
-}(_age.Age);
-
-},{"./../js/age.js":1,"moment":3}],3:[function(require,module,exports){
 //! moment.js
 //! version : 2.19.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -4690,7 +4514,179 @@ return hooks;
 
 })));
 
-},{}],4:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Age = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Age = exports.Age = function () {
+  function Age(age, secondDate, gender, race, activity) {
+    _classCallCheck(this, Age);
+
+    this.age = age;
+    this.secondDate = secondDate;
+    this.gender = gender;
+    this.race = race;
+    this.activity = activity;
+  }
+
+  _createClass(Age, [{
+    key: 'getPersonAgeInSeconds',
+    value: function getPersonAgeInSeconds(age) {
+      var ageInSeconds = new Date(this.age);
+      ageInSeconds = ageInSeconds.getTime() / 1000;
+      return ageInSeconds;
+    }
+  }, {
+    key: 'getSecondsBetweenTwoDates',
+    value: function getSecondsBetweenTwoDates(age, secondDate) {
+      var secondsAge = (0, _moment2.default)(this.age);
+      var secondsSecondDate = (0, _moment2.default)(this.secondDate);
+      return secondsSecondDate.diff(secondsAge, 'seconds');
+    }
+  }, {
+    key: 'lifeExpectancy',
+    value: function lifeExpectancy(gender, race, activity) {
+      var lifeExpectancyMath = Number(this.gender) + Number(this.race);
+      var activityLevel = Number(this.activity);
+
+      console.log('inside app.js"', lifeExpectancyMath);
+      var result = 0;
+      var hispanicMale = 80.16;
+      var hispanicFemale = 85.44;
+      var whiteMale = 76.71;
+      var whiteFemale = 81.48;
+      var blackMale = 72.29;
+      var blackFemale = 78.46;
+      var asianMale = 84.13;
+      var asianFemale = 88.89;
+
+      if (activityLevel === 0) {
+        result = result + 0;
+      } else if (activityLevel > 0 && activityLevel <= 3) {
+        result = result + 2;
+      } else if (activityLevel > 3 && activityLevel <= 6) {
+        result = result + 5;
+      } else {
+        result = result + 10;
+      }
+
+      switch (true) {
+        case lifeExpectancyMath === 6:
+          result = result + hispanicMale;
+          break;
+        case lifeExpectancyMath === 11:
+          result = result + hispanicFemale;
+          break;
+        case lifeExpectancyMath === 7:
+          result = result + whiteMale;
+          break;
+        case lifeExpectancyMath === 12:
+          result = result + whiteFemale;
+          break;
+        case lifeExpectancyMath === 8:
+          result = result + blackMale;
+          break;
+        case lifeExpectancyMath === 13:
+          result = result + blackFemale;
+          break;
+        case lifeExpectancyMath === 9:
+          result = result + asianMale;
+          break;
+        case lifeExpectancyMath === 14:
+          result = result + asianFemale;
+          break;
+        default:
+          console.log('Please enter a valid information');
+      }
+
+      return result;
+    }
+  }]);
+
+  return Age;
+}();
+
+},{"moment":1}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.GalacticAge = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _age = require('./../js/age.js');
+
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var GalacticAge = exports.GalacticAge = function (_Age) {
+  _inherits(GalacticAge, _Age);
+
+  function GalacticAge(age) {
+    _classCallCheck(this, GalacticAge);
+
+    return _possibleConstructorReturn(this, (GalacticAge.__proto__ || Object.getPrototypeOf(GalacticAge)).call(this, age));
+  }
+
+  _createClass(GalacticAge, [{
+    key: 'mercuryAge',
+    value: function mercuryAge(age) {
+      var currentAge = (0, _moment2.default)().diff(this.age, 'years', false);
+      var currentMercuryAge = Math.floor(currentAge * 365 / 88);
+      return currentMercuryAge;
+    }
+  }, {
+    key: 'venusAge',
+    value: function venusAge(age) {
+      var currentAge = (0, _moment2.default)().diff(this.age, 'years', false);
+      var currentVenusAge = Math.floor(currentAge * 365 / 225);
+      return currentVenusAge;
+    }
+  }, {
+    key: 'marsAge',
+    value: function marsAge(age) {
+      var currentAge = (0, _moment2.default)().diff(this.age, 'years', false);
+      var currentMarsAge = Math.ceil(currentAge * 365 / 685);
+      return currentMarsAge;
+    }
+  }, {
+    key: 'jupiterAge',
+    value: function jupiterAge(age) {
+      var currentAge = (0, _moment2.default)().diff(this.age, 'years', false);
+      var currentJupiterAge = Math.ceil(currentAge * 365 / (11.8 * 365));
+      return currentJupiterAge;
+    }
+  }]);
+
+  return GalacticAge;
+}(_age.Age);
+
+},{"./../js/age.js":2,"moment":1}],4:[function(require,module,exports){
 'use strict';
 
 var _age = require('./../js/age.js');
@@ -4709,11 +4705,31 @@ $(document).ready(function () {
     var activity = $('#activity').val();
     var newAge = new _age.Age(birthDate, secondDate, gender, race, activity);
     var lifeExpectancyResult = newAge.lifeExpectancy();
+    console.log('life expectancy result:', lifeExpectancyResult);
     $('.life-expectancy-results').text(lifeExpectancyResult);
 
     var numberOut = newAge.getSecondsBetweenTwoDates();
     $('#numberOut').text(numberOut);
+
+    var newGalacticAge = new _galacticAge.GalacticAge(birthDate, secondDate, gender, race, activity);
+
+    var newGalacticAgeTest = new _galacticAge.GalacticAge();
+
+    var lifeExpectancyInMercury = lifeExpectancyResult;
+    var mercuryAgeOut = newGalacticAgeTest.mercuryAge(lifeExpectancyInMercury);
+    console.log('1:', lifeExpectancyInMercury);
+    console.log('2:', mercuryAgeOut);
+    $('#age-in-mercury').text(mercuryAgeOut);
+
+    var venusAgeOut = newGalacticAge.venusAge();
+    $('#age-in-venus').text(venusAgeOut);
+
+    var marsAgeOut = newGalacticAge.marsAge();
+    $('#age-in-mars').text(marsAgeOut);
+
+    var jupiterAgeOut = newGalacticAge.jupiterAge();
+    $('#age-in-jupiter').text(jupiterAgeOut);
   });
 });
 
-},{"./../js/age.js":1,"./../js/galactic-age.js":2}]},{},[4]);
+},{"./../js/age.js":2,"./../js/galactic-age.js":3}]},{},[4]);

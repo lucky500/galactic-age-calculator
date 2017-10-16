@@ -10,29 +10,25 @@ export class GalacticAge extends Age {
   }
 
   mercuryAge(age){
-    const birthDay = moment(this.age);
-    let currentAge = moment().diff(birthDay, 'years', false);
+    let currentAge = moment().diff(this.age, 'years', false);
     let currentMercuryAge = Math.floor((currentAge * 365) / 88);
     return currentMercuryAge;
   }
 
   venusAge(age){
-    const birthDay = moment(this.age);
-    let currentAge = moment().diff(birthDay, 'years', false);
+    let currentAge = moment().diff(this.age, 'years', false);
     let currentVenusAge = Math.floor((currentAge * 365) / 225);
     return currentVenusAge;
   }
 
-  MarsAge(age){
-    const birthDay = moment(this.age);
-    let currentAge = moment().diff(birthDay, 'years', false);
+  marsAge(age){
+    let currentAge = moment().diff(this.age, 'years', false);
     let currentMarsAge = Math.ceil((currentAge * 365) / 685);
     return currentMarsAge;
   }
 
-  JupiterAge(age){
-    const birthDay = moment(this.age);
-    let currentAge = moment().diff(birthDay, 'years', false);
+  jupiterAge(age){
+    let currentAge = moment().diff(this.age, 'years', false);
     let currentJupiterAge = Math.ceil((currentAge * 365) / (11.8 * 365));
     return currentJupiterAge;
   }
