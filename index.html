@@ -13,15 +13,15 @@
       <div class="col s12">
           <form id="number-form">
             <div class="row">
-              <div class="col s12 l2">
+              <div class="col s6 l2">
                 <label for="birth-date">Enter your Birthday</label>
                 <input id="birth-date" type=date>
               </div>
-              <div class="col s12 l2">
+              <div class="col s6 l2">
                 <label for="second-date">Enter a Second Date</label>
                 <input type="date" id="second-date">
               </div>
-              <div class="col s12 l2">
+              <div class="col s6 l2">
                 <div class="input-field row">
                   <select name="gender" id="gender">
                     <option value="" disabled selected>Choose your option</option>
@@ -31,7 +31,7 @@
                   <label for="gender">Gender:</label>
                 </div>
               </div>
-              <div class="col s12 l2">
+              <div class="col s6 l2">
                 <div class="input-field row">
                   <select name="race" id="race">
                     <option value="" disabled selected>Choose your option</option>
@@ -43,7 +43,7 @@
                   <label for="race">Race:</label>
                 </div>
               </div>
-              <div class="col s12 l2">
+              <div class="col s6 l2">
                 <div class="input-field activity row">
                   <label for="activity">Activity Level:</label>
                   <br>
@@ -52,7 +52,7 @@
                   </p>
                 </div>
               </div>
-              <div class="col s12 l2">
+              <div class="col s6 l2">
                 <div class="valign-wrapper">
                   <button class="btn center-align form-button" type="submit" name="button">Submit</button>
                 </div>
@@ -62,50 +62,71 @@
         </div>
     </div>
     <div class="body-wrapper">
-      <div class=>
-        <div class="row">
-          <div class="col s12 l2">
-            <p id="numberOut"></p>
-            <p>You will live until <span class="life-expectancy-results"></span></p>
-          </div>
-          <div class="col s12 l2">
-            <div class="mars">
-              <p>Your age in Mars is: <br>
-                <span id="age-in-mars"></span>
-              </p>
-              <p>Your life expectancy is: <br>
-                <span id="life-exctancy-mars"></span>
-              </p>
+      <div class="row">
+        <div class="col s12 l6 first-column"> 
+        </div>
+        <div class="col s12 l6 second-column">
+          <div class="row">
+            <div class="col s12 l12">
+              <!-- <p id="numberOut"></p> -->
+              <span>You will live until</span>
+              <span class="life-expectancy-results"></span>
             </div>
           </div>
-          <div class="col s12 l2">
-            <div class="jupiter">
-              <p>Your age in jupiter is: <br>
-                <span id="age-in-jupiter"></span>
-              </p>
-              <p>Your life expectancy is: <br>
-                <span id="life-exctancy-jupiter"></span>
-              </p>
+          <div class="row">
+            <div class="col s12 l12">
+              <div class="mars">
+                <div>
+                  <span>Your age in Mars is: </span>
+                  <span id="age-in-mars"></span>
+                </div>
+                <div>
+                  <span>Your life expectancy is: </span>
+                  <span id="life-exctancy-mars"></span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col s12 l2">
-            <div class="mercury">
-              <p>Your age in Mercury is: <br>
-                  <span id="age-in-mercury"></span>
-              </p>
-              <p>Your life expectancy is: <br>
-                <span id="life-exctancy-mercury"></span>
-              </p>
+          <div class="row">
+            <div class="col s12 l6">
+              <div class="jupiter">
+                <div>
+                  <span>Your age in jupiter is: </span>
+                  <span id="age-in-jupiter"></span>
+                </div>
+                <div>
+                  <span>Your life expectancy is: </span>
+                  <span id="life-exctancy-jupiter"></span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col s12 l2">
-            <div class="venus">
-              <p>Your age in Venus is: <br>
-                <span id="age-in-venus"></span>
-              </p>
-              <p>Your life expectancy is: <br>
-                <span id="life-exctancy-venus"></span>
-              </p>
+          <div class="row">
+            <div class="col s12 l6">
+              <div class="mercury">
+                <div>
+                    <span>Your age in Mercury is: </span>
+                    <span id="age-in-mercury"></span>
+                </div>
+                <div>
+                  <span>Your life expectancy is: </span>
+                  <span id="life-exctancy-mercury"></span>
+                </div>
+              </div>
+            </div>    
+          </div>
+          <div class="row">
+            <div class="col s12 l6">
+              <div class="venus">
+                <div>
+                  <span>Your age in Venus is: </span>
+                  <span id="age-in-venus"></span>
+                </div>
+                <div>
+                  <span>Your life expectancy is: </span>
+                  <span id="life-exctancy-venus"></span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

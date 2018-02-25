@@ -1,5 +1,12 @@
 /* ============== GLOBAL  STARTS ================= */
 @import "reset";
 
-
+body {
+  background-image: url('../img/bg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+}
 /* ============== GLOBAL  ENDS ================= */
